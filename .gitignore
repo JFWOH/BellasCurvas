@@ -1,0 +1,32 @@
+.vercel
+# Logs
+logs/
+*.log
+
+# Diretórios de dependências
+node_modules/
+
+# Build de produção
+dist/
+
+# Arquivos de cache
+.cache/
+.vite/
+
+# Arquivos de configuração de ambiente
+.env
+.env.*.local
+
+# Arquivos e pastas do VS Code
+.vscode/
+
+# Sistema operacional (Windows)
+Thumbs.db
+ehthumbs.db
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Outros arquivos gerados, se houver
+*.bak
