@@ -9,7 +9,7 @@ const Blog = () => {
       excerpt: 'Descubra técnicas simples para destacar seus pontos fortes e se sentir mais confiante.',
       author: 'Maria Silva',
       date: '15 de Junho, 2025',
-      image: '/src/assets/Generated Image June 15, 2025 - 7_45PM (1).jpeg',
+      image: '/images/Generated Image June 15, 2025 - 7_45PM (1).jpeg',
       category: 'Dicas de Estilo',
     },
     {
@@ -18,7 +18,7 @@ const Blog = () => {
       excerpt: 'Conheça as principais tendências da moda plus size para a estação mais quente do ano.',
       author: 'Ana Costa',
       date: '12 de Junho, 2025',
-      image: '/src/assets/Generated Image June 15, 2025 - 2_13AM (1).jpeg',
+      image: '/images/Generated Image June 15, 2025 - 2_13AM (1).jpeg',
       category: 'Tendências',
     },
     {
@@ -27,7 +27,7 @@ const Blog = () => {
       excerpt: 'Como a moda pode ser uma ferramenta poderosa para construir e fortalecer a autoestima.',
       author: 'Carla Santos',
       date: '10 de Junho, 2025',
-      image: '/src/assets/Generated Image June 15, 2025 - 10_42PM.jpeg',
+      image: '/images/Generated Image June 15, 2025 - 10_42PM.jpeg',
       category: 'Bem-estar',
     },
     {
@@ -36,7 +36,7 @@ const Blog = () => {
       excerpt: 'Do casual ao formal, descubra qual vestido escolher para cada momento especial.',
       author: 'Maria Silva',
       date: '8 de Junho, 2025',
-      image: '/src/assets/Generated Image June 14, 2025 - 10_23PM (1).jpeg',
+      image: '/images/Generated Image June 14, 2025 - 10_23PM (1).jpeg',
       category: 'Guias',
     },
     {
@@ -45,7 +45,7 @@ const Blog = () => {
       excerpt: 'Entenda como as cores podem influenciar seu humor e a percepção dos outros.',
       author: 'Ana Costa',
       date: '5 de Junho, 2025',
-      image: '/src/assets/Generated Image June 15, 2025 - 7_39PM.jpeg',
+      image: '/images/Generated Image June 15, 2025 - 7_39PM.jpeg',
       category: 'Dicas de Estilo',
     },
     {
@@ -54,7 +54,7 @@ const Blog = () => {
       excerpt: 'Como fazer escolhas mais conscientes e sustentáveis no seu guarda-roupa.',
       author: 'Carla Santos',
       date: '3 de Junho, 2025',
-      image: '/src/assets/Generated Image June 15, 2025 - 2_13AM (2).jpeg',
+      image: '/images/Generated Image June 15, 2025 - 2_13AM (2).jpeg',
       category: 'Sustentabilidade',
     },
   ];

@@ -148,12 +148,12 @@ const Home = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="/src/assets/Generated Image June 15, 2025 - 2_13AM (2).jpeg"
+                src="/images/Generated Image June 15, 2025 - 2_13AM (2).jpeg"
                 alt="Moda Plus Size"
                 className="rounded-lg shadow-lg"
               />
               <img
-                src="/src/assets/Generated Image June 15, 2025 - 7_45PM.jpeg"
+                src="/images/Generated Image June 15, 2025 - 7_45PM.jpeg"
                 alt="Estilo e Elegância"
                 className="rounded-lg shadow-lg mt-8"
               />

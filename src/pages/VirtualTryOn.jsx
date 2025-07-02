@@ -10,19 +10,19 @@ const VirtualTryOn = () => {
     {
       id: 1,
       name: 'Vestido Plissado Verde Esmeralda',
-      image: '/src/assets/Generated Image June 14, 2025 - 10_23PM (1).jpeg',
+      image: '/images/Generated Image June 14, 2025 - 10_23PM (1).jpeg',
       price: 'R$ 299,90',
     },
     {
       id: 2,
       name: 'Vestido Listrado Elegante',
-      image: '/src/assets/Generated Image June 14, 2025 - 10_24PM (4).jpeg',
+      image: '/images/Generated Image June 14, 2025 - 10_24PM (4).jpeg',
       price: 'R$ 259,90',
     },
     {
       id: 3,
       name: 'Vestido Tropical Verão',
-      image: '/src/assets/Generated Image June 15, 2025 - 2_13AM (1).jpeg',
+      image: '/images/Generated Image June 15, 2025 - 2_13AM (1).jpeg',
       price: 'R$ 199,90',
     },
   ];

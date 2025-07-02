@@ -69,12 +69,12 @@ const About = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="/src/assets/Generated Image June 15, 2025 - 7_45PM (1).jpeg"
+                src="/images/Generated Image June 15, 2025 - 7_45PM (1).jpeg"
                 alt="Nossa História"
                 className="rounded-lg shadow-lg"
               />
               <img
-                src="/src/assets/Generated Image June 15, 2025 - 10_27PM.jpeg"
+                src="/images/Generated Image June 15, 2025 - 10_27PM.jpeg"
                 alt="Moda Plus Size"
                 className="rounded-lg shadow-lg mt-8"
               />
