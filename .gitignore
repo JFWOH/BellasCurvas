@@ -13,9 +13,13 @@ dist/
 .cache/
 .vite/
 
-# Arquivos de configuração de ambiente
+# Arquivos de configuração de ambiente — NUNCA commitar!
 .env
+.env.local
 .env.*.local
+
+# Claude Code (arquivos internos da IA — não fazem parte do projeto)
+.claude/
 
 # Arquivos e pastas do VS Code
 .vscode/

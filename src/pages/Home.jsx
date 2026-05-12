@@ -1,10 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Heart, ShoppingBag } from 'lucide-react';
-import { getFeaturedProducts, products } from '../data/products';
+import { ArrowRight, Star, Heart, ShoppingBag, Loader2 } from 'lucide-react';
+import { useFeaturedProducts } from '../hooks/useProducts';
+import { getFeaturedProducts, products as staticProducts } from '../data/products';
+
+const supabaseConfigured =
+  import.meta.env.VITE_SUPABASE_URL &&
+  !import.meta.env.VITE_SUPABASE_URL.includes('placeholder');
 
 const Home = () => {
-  const featuredProducts = getFeaturedProducts(products, 3);
+  const { data: remoteFeatured, isLoading } = useFeaturedProducts(3);
+  const featuredProducts = supabaseConfigured
+    ? (remoteFeatured ?? [])
+    : getFeaturedProducts(staticProducts, 3);
 
   const testimonials = [
     {
@@ -66,6 +74,12 @@ const Home = () => {
             </p>
           </div>
 
+          {isLoading && supabaseConfigured && (
+              <div className="flex items-center justify-center py-12">
+                <Loader2 className="h-7 w-7 animate-spin text-primary mr-2" />
+                <span className="text-gray-500">Carregando destaques...</span>
+              </div>
+            )}
           <div className="grid-auto-fit">
             {featuredProducts.map((product) => (
               <div key={product.id} className="product-card bg-white rounded-lg overflow-hidden shadow-lg">

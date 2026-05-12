@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
-import { Search, Filter, Heart, ShoppingBag, Star, Grid, List } from 'lucide-react';
-import { products, categories, occasions, sizes, priceRanges, colors, filterProducts } from '../data/products';
+import React, { useState, useMemo } from 'react';
+import { Search, Filter, Heart, ShoppingBag, Star, Grid, List, Loader2 } from 'lucide-react';
+import { useProducts } from '../hooks/useProducts';
+import { products as staticProducts, categories, occasions, sizes, priceRanges, colors, filterProducts } from '../data/products';
+
+const supabaseConfigured =
+  import.meta.env.VITE_SUPABASE_URL &&
+  !import.meta.env.VITE_SUPABASE_URL.includes('placeholder');
 
 const Catalog = () => {
   const [filters, setFilters] = useState({
@@ -18,22 +23,24 @@ const Catalog = () => {
     setFilters(prev => ({ ...prev, [key]: value }));
   };
 
-  const filteredProducts = filterProducts(products, filters);
+  const { data: remoteProducts, isLoading, isError } = useProducts(
+    supabaseConfigured ? { category: filters.category, occasion: filters.occasion, search: filters.search, priceRange: filters.priceRange } : {}
+  );
 
-  const sortedProducts = [...filteredProducts].sort((a, b) => {
+  const baseProducts = useMemo(() => {
+    if (supabaseConfigured) return remoteProducts ?? [];
+    return filterProducts(staticProducts, filters);
+  }, [remoteProducts, filters]);
+
+  const sortedProducts = useMemo(() => [...baseProducts].sort((a, b) => {
     switch (sortBy) {
-      case 'price-low':
-        return a.price - b.price;
-      case 'price-high':
-        return b.price - a.price;
-      case 'rating':
-        return b.rating - a.rating;
-      case 'newest':
-        return b.id - a.id;
-      default:
-        return a.name.localeCompare(b.name);
+      case 'price-low': return a.price - b.price;
+      case 'price-high': return b.price - a.price;
+      case 'rating': return b.rating - a.rating;
+      case 'newest': return 0;
+      default: return a.name.localeCompare(b.name);
     }
-  });
+  }), [baseProducts, sortBy]);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -223,8 +230,21 @@ const Catalog = () => {
               </div>
             </div>
 
-            {/* Products */}
-            {sortedProducts.length > 0 ? (
+            {/* Loading / Error states */}
+            {isLoading && (
+              <div className="flex items-center justify-center py-20">
+                <Loader2 className="h-8 w-8 animate-spin text-primary mr-3" />
+                <span className="text-gray-500">Carregando produtos...</span>
+              </div>
+            )}
+            {isError && (
+              <div className="text-center py-12 bg-red-50 rounded-lg border border-red-200">
+                <p className="text-red-600">Erro ao carregar produtos. Verifique sua conexão e tente novamente.</p>
+              </div>
+            )}
+
+          {/* Products */}
+            {!isLoading && !isError && sortedProducts.length > 0 ? (
               <div className={viewMode === 'grid' ? 'grid-auto-fit' : 'space-y-6'}>
                 {sortedProducts.map((product) => (
                   <div key={product.id} className={`product-card bg-white rounded-lg overflow-hidden shadow-lg ${viewMode === 'list' ? 'flex' : ''}`}>
@@ -288,7 +308,7 @@ const Catalog = () => {
                   </div>
                 ))}
               </div>
-            ) : (
+            ) : !isLoading && !isError ? (
               <div className="text-center py-12">
                 <p className="text-gray-500 text-lg">
                   Nenhum produto encontrado com os filtros selecionados.
@@ -307,7 +327,7 @@ const Catalog = () => {
                   Limpar Filtros
                 </button>
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </div>
